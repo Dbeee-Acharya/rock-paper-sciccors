@@ -8,6 +8,10 @@
 */
 
 //take userInput 
+function userInput(){
+    let choice = (prompt("rock, paper or scissors ?")).toLowerCase();
+    return choice;
+};
 
 //this function returns either rock, paper or scissors 
 function getComputerSelection() {
@@ -16,24 +20,9 @@ function getComputerSelection() {
     let number = Math.floor(Math.random() * 3);
 
     return choices[number];
-}
-
-for (let i = 1; i<=10; i++) {
-    console.log(getComputerSelection())
-}
-
-// function getComputerSelection() {
-//     let number = Math.floor(Math.random() * 3); // generates a random number between from 0 to 2
-
-//     if (number === 0) {
-//         return "rock";
-//     } else if (number === 1) {
-//         return "paper"
-//     } else {
-//         return "scissors"
-//     }
-// }
-
-
+};
 
 //compare 
+function compareSelection(userInput, getComputerSelection) {
+    
+};
