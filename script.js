@@ -9,23 +9,31 @@
 
 //take userInput 
 
-
+//this function returns either rock, paper or scissors 
 function getComputerSelection() {
-    let number = Math.floor(Math.random() * 3); // generates a random number between from 0 to 2
+    let choices = ["rock", "paper", "scissors"];
 
-    if (number === 0) {
-        return "rock";
-    } else if (number === 1) {
-        return "paper"
-    } else {
-        return "scissors"
-    }
+    let number = Math.floor(Math.random() * 3);
+
+    return choices[number];
 }
 
-let list =[]
-for (let i = 0; i <= 10; i++) {
-    list.push(getComputerSelection());
+for (let i = 1; i<=10; i++) {
+    console.log(getComputerSelection())
 }
-console.log(list);
+
+// function getComputerSelection() {
+//     let number = Math.floor(Math.random() * 3); // generates a random number between from 0 to 2
+
+//     if (number === 0) {
+//         return "rock";
+//     } else if (number === 1) {
+//         return "paper"
+//     } else {
+//         return "scissors"
+//     }
+// }
+
+
 
 //compare 
