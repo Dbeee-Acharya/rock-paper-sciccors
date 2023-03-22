@@ -10,9 +10,8 @@
 
 
 function userInput(){
-    // let choice = (prompt("rock, paper or scissors ?")).toLowerCase();
-    // return choice;
-    return "rock";
+    let choice = (prompt("rock, paper or scissors ?")).toLowerCase();
+    return choice;
 };
 
 //this function returns either rock, paper or scissors 
@@ -27,15 +26,16 @@ function getComputerSelection() {
 function compareSelection(user, computer) {
     let userWin = 0;
     let computerWin = 0;
+    let userChoice = user()
+    let computerChoice = computer()
 
-    
-    if (user() === computer()) {
+    if (userChoice === computerChoice) {
         return "Its a Draw"
     }
 
-    if ((user() === "rock" && computer() === "scissors") || 
-        (user() === "paper" && computer() === "rock") ||
-        (user() === "scissors" && computer() === "paper")) {
+    if ((userChoice === "rock" && computerChoice === "scissors") || 
+        (userChoice === "paper" && computerChoice === "rock") ||
+        (userChoice === "scissors" && computerChoice === "paper")) {
             userWin += 1
             return "User wins this round"
     } else {
@@ -44,5 +44,14 @@ function compareSelection(user, computer) {
     }
 };
 
-console.log(getComputerSelection());
-console.log(compareSelection(userInput, getComputerSelection));
+function game(compare, user, computer) {
+        console.log(compare(user, computer));
+};
+
+for (let i = 0; i < 5; i++){
+    game(compareSelection, userInput, getComputerSelection);
+}
+ 
+
+
+
