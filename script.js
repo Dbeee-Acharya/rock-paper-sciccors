@@ -25,9 +25,8 @@ function getComputerSelection() {
 
 function compareSelection(user, computer) {
     let userWin = 0;
-    let computerWin = 0;
-    let userChoice = user()
-    let computerChoice = computer()
+    let userChoice = user();
+    let computerChoice = computer();
 
     if (userChoice === computerChoice) {
         return "Its a Draw"
@@ -36,21 +35,23 @@ function compareSelection(user, computer) {
     if ((userChoice === "rock" && computerChoice === "scissors") || 
         (userChoice === "paper" && computerChoice === "rock") ||
         (userChoice === "scissors" && computerChoice === "paper")) {
-            userWin += 1
             return "User wins this round"
     } else {
-        computerWin += 1
         return "Computer Wins this round"
     }
 };
 
 function game(compare, user, computer) {
+    for (let i = 1; i <= 5; i++){
         console.log(compare(user, computer));
+    }
 };
 
-for (let i = 0; i < 5; i++){
-    game(compareSelection, userInput, getComputerSelection);
-}
+
+game(compareSelection, userInput, getComputerSelection);
+console.log(userWin)
+console.log(computerWin)
+
  
 
 
