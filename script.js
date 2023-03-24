@@ -3,18 +3,28 @@
 /* 
     TODO
     1. take userInput (string)
+    1.1 check if userInput is valid
     2. Create a function that randomly generates rock paper or scissors
     3. Create a function to compare userInput with Random result and declare winner
+    4. count userWin and computerWIn
 */
 
 
-
+//userInput works
 function userInput(){
     let choice = (prompt("rock, paper or scissors ?")).toLowerCase();
-    return choice;
+
+    if (choice == "rock" || choice == "paper" || choice == "scissors"){
+        return choice;
+    } 
 };
 
-//this function returns either rock, paper or scissors 
+//integrate this func into userInput
+function inputError() {
+    alert("Input Invalid")
+}
+
+//this function returns either rock, paper or scissors works
 function getComputerSelection() {
     let choices = ["rock", "paper", "scissors"];
 
@@ -23,9 +33,11 @@ function getComputerSelection() {
     return choices[number];
 };
 
+//fix userWIn and computerWin not being recorded
+let userWin = 0;
+let computerWin = 0;
 function compareSelection(user, computer) {
-    let userWin = 0;
-    let userChoice = user();
+    let userChoice = user(inputError);
     let computerChoice = computer();
 
     if (userChoice === computerChoice) {
@@ -35,8 +47,11 @@ function compareSelection(user, computer) {
     if ((userChoice === "rock" && computerChoice === "scissors") || 
         (userChoice === "paper" && computerChoice === "rock") ||
         (userChoice === "scissors" && computerChoice === "paper")) {
+            userWin += 1;
             return "User wins this round"
     } else {
+        computerWin +=1
+        console.log(computerWin)
         return "Computer Wins this round"
     }
 };
@@ -47,10 +62,15 @@ function game(compare, user, computer) {
     }
 };
 
-
 game(compareSelection, userInput, getComputerSelection);
-console.log(userWin)
-console.log(computerWin)
+
+if (computerWin > userWin) {
+    console.log("Computer Wins") 
+} else {
+    console.log("User Wins")
+}
+
+
 
  
 
