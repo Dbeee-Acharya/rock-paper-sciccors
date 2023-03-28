@@ -52,9 +52,14 @@ function compareSelection(user, computer) {
 };
 
 function game(compare, user, computer) {
-    for (let i = 1; i <= 5; i++){
+
+    while (userWin != 5 && computerWin != 5) {
         console.log(compare(user, computer));
-    }
+        console.log(userWin, computerWin);
+    };
+    // for (let i = 1; i <= 5; i++){
+    //     console.log(compare(user, computer));
+    // }
 
     if (computerWin > userWin) {
         console.log("Computer Winsss;s") 
