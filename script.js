@@ -12,17 +12,13 @@
 
 //userInput works
 function userInput(){
-    let choice = (prompt("rock, paper or scissors ?")).toLowerCase();
+    let choice;
+    do {
+        choice = (prompt("rock, paper or scissors ?")).toLowerCase(); 
+    } while (!(choice == "rock" || choice == "paper" || choice == "scissors"))
 
-    if (choice == "rock" || choice == "paper" || choice == "scissors"){
-        return choice;
-    } 
+    return choice;
 };
-
-//integrate this func into userInput
-function inputError() {
-    alert("Input Invalid")
-}
 
 //this function returns either rock, paper or scissors works
 function getComputerSelection() {
@@ -37,7 +33,7 @@ function getComputerSelection() {
 let userWin = 0;
 let computerWin = 0;
 function compareSelection(user, computer) {
-    let userChoice = user(inputError);
+    let userChoice = user();
     let computerChoice = computer();
 
     if (userChoice === computerChoice) {
@@ -51,7 +47,6 @@ function compareSelection(user, computer) {
             return "User wins this round"
     } else {
         computerWin +=1
-        console.log(computerWin)
         return "Computer Wins this round"
     }
 };
@@ -60,15 +55,18 @@ function game(compare, user, computer) {
     for (let i = 1; i <= 5; i++){
         console.log(compare(user, computer));
     }
+
+    if (computerWin > userWin) {
+        console.log("Computer Winsss;s") 
+    } else if (computerWin < userWin) {
+        console.log("User Winssss");
+    } else {
+        console.log("Its a DRAWWWW");
+    }
 };
 
-game(compareSelection, userInput, getComputerSelection);
 
-if (computerWin > userWin) {
-    console.log("Computer Wins") 
-} else {
-    console.log("User Wins")
-}
+
 
 
 
